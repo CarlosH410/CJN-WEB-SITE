@@ -91,6 +91,11 @@ body {
 
 /* Estilos para modo móvil y tablet */
 @media (max-width: 768px) {
+
+    .navbar{
+       
+        justify-content: space-between;
+    }
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -234,18 +239,18 @@ body {
     }
 
     .hero-text {
-        
+        padding: 15px;
         width: 90%; /* La caja de texto ocupa todo el ancho */
         margin: 0 auto; /* Centra la caja de texto en la pantalla */
-        margin-bottom: -30px;
+        margin-bottom: -20px;
     }
 
     .hero-text h2 {
-        font-size: 1.8rem; /* Ajusta el tamaño del título */
+        font-size: 1.5rem; /* Ajusta el tamaño del título */
     }
 
     .hero-text p {
-        font-size: 1rem; /* Ajusta el tamaño del texto */
+        font-size: 0.9rem; /* Ajusta el tamaño del texto */
     }
 
     .hero-text .btn {
@@ -433,6 +438,10 @@ body {
 
 .columna {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar el contenido horizontalmente */
+    text-align: center; /* Centrar el texto */
 }
 
 .columna ul {
@@ -450,7 +459,7 @@ body {
 }
 
 .columna ul li i {
-    color:  #29a6af;
+    color: #29a6af;
     margin-right: 10px;
     font-size: 1.2rem;
 }
@@ -468,12 +477,17 @@ body {
     .cualidades-grid {
         flex-direction: column;
         gap: 20px;
+        align-items: center; /* Centrar el contenido */
     }
 
     .linea-vertical {
-        display: none; /* Ocultar la línea en móviles */
+        display: block; /* Mostrar la línea */
+        width: 80%; /* Ancho de la línea horizontal */
+        height: 2px; /* Grosor de la línea */
+        margin: 20px 0; /* Espaciado arriba y abajo */
     }
 }
+
 
 
 /* Estilos para la sección Eventos */
@@ -524,6 +538,7 @@ body {
 .evento-content {
     padding: 20px;
     text-align: center;
+    
 }
 
 .evento-content h3 {
@@ -536,9 +551,11 @@ body {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .evento-content .btn {
+   
     background-color:  #29a6af;
     color: white;
     padding: 10px 20px;
@@ -546,6 +563,8 @@ body {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    margin-top: 20px; /* Añade un margen superior para separar el botón */
+    
 }
 
 .evento-content .btn:hover {
@@ -556,8 +575,22 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .eventos-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 20px;
     }
+    
+    .evento-card {
+        flex: 1 1 300px; /* Flexibilidad para adaptarse al tamaño de la pantalla */
+        max-width: 350px; /* Ancho máximo para evitar que las tarjetas sean demasiado grandes */
+    }
+    .evento-content p{
+        margin-bottom: 25px;
+    }
+
+    
 }
 
 
