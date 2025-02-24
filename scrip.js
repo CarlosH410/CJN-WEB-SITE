@@ -31,66 +31,6 @@ window.addEventListener('scroll', () => {
 });
 
 
-
-const carrusel = document.querySelector(".carrusel-contenedor");
-const totalLideres = document.querySelectorAll(".lider").length;
-const indicadores = document.querySelectorAll(".indicador");
-
-// Duplicar los líderes para crear un efecto de bucle infinito
-const lideres = document.querySelectorAll(".lider");
-lideres.forEach(lider => {
-    const clon = lider.cloneNode(true);
-    carrusel.appendChild(clon);
-});
-
-let posicionActual = 0;
-let anchoLider;
-
-function calcularAnchoLider() {
-    if (window.innerWidth <= 480) {
-        anchoLider = carrusel.clientWidth; // 1 líder en móviles
-    } else if (window.innerWidth <= 768) {
-        anchoLider = carrusel.clientWidth / 2; // 2 líderes en tablets
-    } else {
-        anchoLider = carrusel.clientWidth / 3; // 3 líderes en desktop
-    }
-}
-
-function moverCarrusel() {
-    posicionActual++;
-
-    if (posicionActual >= totalLideres) {
-        posicionActual = 0;
-        carrusel.style.transition = "none";
-        carrusel.style.transform = `translateX(0)`;
-        setTimeout(() => {
-            carrusel.style.transition = "transform 0.5s ease";
-            moverCarrusel();
-        }, 0);
-    } else {
-        carrusel.style.transform = `translateX(${-posicionActual * anchoLider}px)`;
-    }
-
-    actualizarIndicadores();
-}
-
-function actualizarIndicadores() {
-    const indiceActivo = posicionActual % totalLideres;
-    indicadores.forEach((indicador, index) => {
-        indicador.classList.toggle("activo", index === indiceActivo);
-    });
-}
-
-// Recalcular el ancho del líder al cambiar el tamaño de la ventana
-window.addEventListener("resize", calcularAnchoLider);
-
-// Iniciar el carrusel
-calcularAnchoLider();
-setInterval(moverCarrusel, 3000);
-actualizarIndicadores();
-
-
-
 // contacto 
 
 document.querySelector(".formulario form").addEventListener("submit", (e) => {
@@ -111,4 +51,48 @@ document.querySelector(".formulario form").addEventListener("submit", (e) => {
 
     alert("Mensaje enviado correctamente.");
     // Aquí puedes agregar lógica para enviar el formulario (AJAX, etc.)
+});
+
+
+
+
+const swiper = new Swiper('.slider-wrapper', {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 0,
+    // Pagination bullets
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    // Autoplay configuration
+    
+    // Responsive breakpoints
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      480: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
+
+
+//ANIMACIONAE 
+
+// Inicializar AOS
+AOS.init({
+    duration: 1000, // Duración de la animación en milisegundos
+    once: true, // La animación solo se ejecuta una vez
 });

@@ -1,0 +1,174 @@
+/* Importing Google Font - Montserrat */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+.lider {
+  display: flex;
+  align-items: center;
+  min-width: 33.33%; /* Muestra 3 líderes a la vez */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  height: 200px; /* Altura fija para alinear los nombres */
+  
+}
+
+.lider img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.lider-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinear verticalmente el contenido */
+}
+
+.lider-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #29a6af; /* Color principal */
+}
+
+.lider-info .cargo {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.lider-info .descripcion-lider {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+
+.liderazgo {
+  padding: 80px 0;
+  background-color: #fff;
+
+  display: flex;
+  align-items: center;
+    
+    
+    
+}
+
+.liderazgo h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #29a6af; /* Color principal */
+}
+
+.liderazgo .descripcion {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+
+.carrusel {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carrusel-contenedor {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+
+.slider-wrapper {
+  
+  overflow: hidden;
+  
+  max-width: 1000px;
+  margin: 0 70px 100px;
+
+  
+}
+
+
+
+
+
+
+
+.slider-wrapper .swiper-pagination-bullet {
+  background: #29a6af;
+  height: 13px;
+  width: 13px;
+  opacity: 0.5;
+  
+}
+.slider-wrapper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+.slider-wrapper .swiper-slide-button {
+  color: #fff;
+  margin-top: -55px;
+  transition: 0.2s ease;
+}
+.slider-wrapper .swiper-slide-button:hover {
+  color: #4658ff;
+}
+@media (max-width: 768px) {
+
+  
+  .slider-wrapper {
+    margin: 0 10px 40px;
+  }
+  .slider-wrapper .swiper-slide-button {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .lider {
+    flex-direction: column; /* Cambiar a columna */
+    align-items: center; /* Centrar el contenido */
+    text-align: center; /* Alinear el texto al centro */
+    height: auto; /* Altura automática */
+    padding: 15px; /* Reducir el padding */
+  }
+
+  .lider img {
+    width: 80px; /* Reducir el tamaño de la imagen */
+    height: 80px;
+    margin-right: 0; /* Eliminar el margen derecho */
+    margin-bottom: 15px; /* Agregar margen inferior */
+  }
+  
+}
