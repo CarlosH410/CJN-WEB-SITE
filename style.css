@@ -25,7 +25,7 @@ body {
     position: fixed;
     top: 0;
     z-index: 1000;
-    height: 80px;
+    height: 100px;
     transition: background-color 0.3s ease;
 }
 
@@ -36,7 +36,7 @@ body {
 
 /* Logo */
 .navbar .logo img {
-    width: 200px;
+    width: 250px;
     transition: transform 0.3s ease;
 }
 
@@ -156,15 +156,29 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url('Logos_CJN/home01.jpg') no-repeat center center/cover;
-    min-height: 90vh; /* Garantiza que la sección ocupe toda la altura de la pantalla */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el contenido */
-    align-items: flex-end;
-    text-align: center;
+    background-image: url('Logos_CJN/home01.jpg');
+    height: 90vh; /* Ocupa el 100% del alto de la pantalla */;
+    background-position:  center; /* Se queda en la parte superior */
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    
+    
     color: white;
     position: relative;
+    background-attachment: fixed; /* Hace que la imagen de fondo se mantenga fija */
+    transition: transform 0.3s ease-in-out;
+
+    
 }
+   
+
+    
+
+
+
+
 
 .hero::before {
     content: '';
@@ -174,27 +188,31 @@ body {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5); /* Overlay oscuro para mejorar la legibilidad */
+    
 }
 
+
+
 .hero-text {
-    position: relative;
-    z-index: 1;
-    background-color: rgb(255, 255, 255); /* Fondo semitransparente blanco */
-    padding: 20px;
-    border-radius: 10px;
-    color: #333; /* Texto en color oscuro */
-    width: 800px;
-    margin-bottom: -50px; /* Ajusta la distancia desde el fondo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    
 }
 
 .hero-text h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
+    animation: fadeIn 2.5s ease-in-out;
 }
 
 .hero-text .btn {
@@ -206,10 +224,81 @@ body {
     font-weight: bold;
 }
 
+.content-section {
+    padding: 10px;
+    background-color: #f4f4f4;
+    text-align: center;
+    font-size: 1.2rem;
+    
+
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    
+
+}
+
+.logo-uce{
+    width: 200px;
+    
+    
+}
+
+.logos .logo-uce img{
+    width: 100px;
+    display: flex;
+    margin: auto;
+    
+}
+
+.logos img{
+    
+    width: 200px;
+    margin: 10px; /* Espaciado entre imágenes */
+}
+
+/* Estilos para tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .logos img {
+        width: 100px; /* Reducir el tamaño de las imágenes para tablets */
+    }
+}
+
+/* Estilos para teléfonos (max-width: 480px) */
+@media (max-width: 480px) {
+    .logos img {
+        width: 85px; /* Reducir aún más el tamaño de las imágenes para teléfonos */
+        margin: 2px; /* Reducir el margen para ahorrar espacio */
+    }
+
+    .logo-uce{
+        width: 85px;
+        
+        
+    }
+
+    .logos .logo-uce img {
+        width: 60px;
+        
+        
+    }
+}
+
+@media (max-width: 840px) {
+    .hero {
+        background-size: cover !important; /* Fuerza a que la imagen cubra el contenedor */
+    }
+    
+}
+
 /* Responsividad para tabletas */
 @media (max-width: 768px) {
     .hero {
-        height: auto; /* La altura de la sección se adapta según el contenido */
+        background-size: cover !important; /* Fuerza a que la imagen cubra el contenedor */
     }
 
     .hero-text {
@@ -235,8 +324,8 @@ body {
 /* Responsividad para teléfonos móviles */
 @media (max-width: 480px) {
     .hero {
-        height: auto; /* La altura de la sección se adapta según el contenido */
-    }
+        background-size: cover !important; /* Fuerza a que la imagen cubra el contenedor */
+      }
 
     .hero-text {
         padding: 15px;
@@ -499,7 +588,7 @@ body {
 }
 .eventos {
     padding: 80px 0;
-    background-color: #fbfbfb;
+    background-color: #f4f4f4;
 }
 
 .eventos h2 {

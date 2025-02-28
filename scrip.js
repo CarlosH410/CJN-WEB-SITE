@@ -72,7 +72,10 @@ const swiper = new Swiper('.slider-wrapper', {
       prevEl: '.swiper-button-prev',
     },
     // Autoplay configuration
-    
+    autoplay: {
+      delay: 3000, // 3 segundos
+      disableOnInteraction: false, // Permite que el autoplay continúe después de interacciones del usuario
+    },
     // Responsive breakpoints
     breakpoints: {
       0: {
@@ -87,12 +90,33 @@ const swiper = new Swiper('.slider-wrapper', {
     },
   });
 
-
-
 //ANIMACIONAE 
 
 // Inicializar AOS
 AOS.init({
     duration: 1000, // Duración de la animación en milisegundos
     once: true, // La animación solo se ejecuta una vez
+});
+
+/*
+window.addEventListener("scroll", function () {
+  let scrollTop = window.scrollY;
+  let heroSection = document.querySelector(".hero");
+  let scaleFactor = 1 + scrollTop / 1000; // Ajusta la velocidad del zoom
+
+  heroSection.style.backgroundSize = `${scaleFactor * 100}%`;
+});
+*/
+
+window.addEventListener("scroll", function () {
+  let scrollTop = window.scrollY;
+  let heroSection = document.querySelector(".hero");
+  let scaleFactor = 1 + scrollTop / 1000; // Ajusta la velocidad del zoom
+
+  // Limita el efecto de zoom en dispositivos móviles
+  if (window.innerWidth <= 768) { // Ajusta el breakpoint según tus necesidades
+    heroSection.style.backgroundSize = "cover"; // Mantén el tamaño original en móviles
+  } else {
+    heroSection.style.backgroundSize = `${scaleFactor * 100}%`; // Aplica el zoom en desktop
+  }
 });

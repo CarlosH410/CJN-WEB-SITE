@@ -1,3 +1,26 @@
+/*const heroImage = document.querySelector('.hero-background img');
+
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const scale = 1 + scrollPosition * 0.0005; // Ajusta este valor para controlar la velocidad del zoom
+    heroImage.style.transform = `scale(${scale })`;
+});
+
+window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+    let heroSection = document.querySelector(".hero");
+    let scaleFactor = 1 + scrollTop / 1000; // Ajusta la velocidad del zoom
+
+    heroSection.style.backgroundSize = `${scaleFactor * 100}%`;
+});
+
+*/
+// Selecciona la imagen dentro del div
+// Selecciona la imagen dentro del div
+
+
+
+
 const swiper = new Swiper('.slider-wrapper', {
     loop: true,
     grabCursor: true,
@@ -14,7 +37,10 @@ const swiper = new Swiper('.slider-wrapper', {
       prevEl: '.swiper-button-prev',
     },
     // Autoplay configuration
-   
+    autoplay: {
+      delay: 3000, // 3 segundos
+      disableOnInteraction: false, // Permite que el autoplay continúe después de interacciones del usuario
+    },
     // Responsive breakpoints
     breakpoints: {
       0: {
@@ -27,71 +53,37 @@ const swiper = new Swiper('.slider-wrapper', {
         slidesPerView: 3,
       },
     },
-  });
-/* document.addEventListener("DOMContentLoaded", () => {
-    const carrusel = document.querySelector(".carrusel-contenedor");
-    const totalLideres = document.querySelectorAll(".lider").length;
-    const indicadores = document.querySelectorAll(".indicador");
+});
 
-    // Duplicar los líderes para crear un efecto de bucle infinito
-    const lideres = document.querySelectorAll(".lider");
-    lideres.forEach(lider => {
-        const clon = lider.cloneNode(true);
-        carrusel.appendChild(clon);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
     });
 
-    let posicionActual = 0;
-    let anchoLider;
-
-    // Calcular el ancho de cada líder en función del tamaño de la pantalla
-    function calcularAnchoLider() {
-        if (window.innerWidth <= 480) {
-            anchoLider = carrusel.clientWidth; // 1 líder en móviles
-        } else if (window.innerWidth <= 768) {
-            anchoLider = carrusel.clientWidth / 2; // 2 líderes en tablets
-        } else {
-            anchoLider = carrusel.clientWidth / 3; // 3 líderes en desktop
-        }
-    }
-
-    // Mover el carrusel a la siguiente posición
-    function moverCarrusel() {
-        posicionActual++;
-
-        // Si llega al final de los líderes duplicados, reiniciar suavemente
-        if (posicionActual >= totalLideres) {
-            posicionActual = 0; // Reiniciar la posición
-            carrusel.style.transition = "none"; // Desactivar transición para reiniciar sin saltos
-            carrusel.style.transform = `translateX(0)`;
-            setTimeout(() => {
-                carrusel.style.transition = "transform 0.5s ease"; // Reactivar transición
-                moverCarrusel(); // Mover al siguiente líder
-            }, 0);
-        } else {
-            carrusel.style.transform = `translateX(${-posicionActual * anchoLider}px)`;
-        }
-
-        // Actualizar indicadores
-        actualizarIndicadores();
-    }
-
-    // Actualizar los indicadores circulares
-    function actualizarIndicadores() {
-        const indiceActivo = posicionActual % totalLideres; // Calcular el índice activo
-        indicadores.forEach((indicador, index) => {
-            if (index === indiceActivo) {
-                indicador.classList.add("activo"); // Resaltar el indicador activo
-            } else {
-                indicador.classList.remove("activo"); // Desactivar los demás indicadores
-            }
+    // Cerrar el menú al hacer clic en un enlace
+    const navItems = document.querySelectorAll(".nav-links a");
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
         });
+    });
+});;
+
+
+// Efecto de cambio de color en la barra de navegación al hacer scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+
+    // Si el desplazamiento es mayor a 50px, agrega la clase 'scrolled'
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
-
-    // Recalcular el ancho del líder al cambiar el tamaño de la ventana
-    window.addEventListener("resize", calcularAnchoLider);
-
-    // Iniciar el carrusel
-    calcularAnchoLider();
-    setInterval(moverCarrusel, 3000); // Mover el carrusel cada 3 segundos
-    actualizarIndicadores(); // Inicializar los indicadores
-});*/
+});
